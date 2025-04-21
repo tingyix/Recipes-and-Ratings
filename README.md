@@ -31,3 +31,34 @@ Using these datasets, we will analyze patterns to determine what factors contrib
 
 These insights are useful for home chefs, food bloggers, and anyone looking to understand trends in the culinary world, helping them create recipes that are more likely to earn top ratings.
 
+## Data Cleaning and Exploratory Data Analysis
+
+To ensure a meaningful and accurate analysis, we carefully cleaned and prepared the data, taking into account how the data was generated and the potential issues that might arise from user input or system defaults.
+
+1. **Converted Timestamps**  
+   The `date` column in the `RAW_interactions` dataset was stored as text. Since users submitted reviews over time, we converted this column into proper datetime format to allow for any future temporal analysis.  
+   `interactions['date'] = pd.to_datetime(interactions['date'], errors='coerce')`
+
+2. **Removed Unrealistic Preparation Times**  
+   Some recipes reported a preparation time of 0 minutes, which likely results from data entry errors or default values. We replaced `minutes = 0` with `NaN` and later removed those rows, along with extremely high values (greater than 1000 minutes) that could skew the analysis.  
+   `recipes['minutes'] = recipes['minutes'].replace(0, pd.NA)`  
+   `recipes = recipes[recipes['minutes'] <= 1000]`
+
+3. **Handled Missing Values**  
+   - We dropped recipes that lacked a description, assuming that these entries are incomplete or less informative.  
+     `recipes.dropna(subset=['description'], inplace=True)`
+   - We kept reviews without text (`review` column) because our prediction focuses on the numerical `rating` column, which was present in most cases.  
+   - Ratings of 0 were treated as missing, since they likely indicate invalid or placeholder entries.  
+     `merged_df['rating'] = merged_df['rating'].replace(0, np.nan)`
+
+4. **Created a Feature: Number of Ingredients**  
+   Although not shown in the snippet above, we parsed the ingredient list to count how many ingredients each recipe included, adding a new `num_ingredients` column. This allows us to explore whether simpler recipes (with fewer ingredients) are rated more highly.
+
+5. **Merged Datasets**  
+   Finally, we joined the two datasets on the recipe ID to combine recipe features with user ratings. This merged dataset allows us to analyze patterns between recipe characteristics and their average ratings.  
+   `merged_df = pd.merge(interactions, recipes, how='left', left_on='recipe_id', right_on='id')`
+
+6. **Created Average Rating per Recipe**  
+   To better understand the overall popularity of each recipe, we calculated the average rating each recipe received and added it as a new column.  
+   `avg_rating_per_recipe = merged_df.groupby('id')['rating'].mean()`  
+   `merged_df = merged_df.merge(avg_rating_per_recipe.rename('avg_rating'), on='id', how='left')`
