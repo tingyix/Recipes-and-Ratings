@@ -81,7 +81,12 @@ Most users rated recipes very highly — particularly around 5 stars — which s
 
 Next, we examined how many ingredients recipes typically use:
 
-(embed fig_ing plot here)
+<iframe
+ src="assets/fig_ing.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 We observed that most recipes use fewer than 15 ingredients, with a steep drop-off after that point. This suggests that shorter ingredient lists are common, and may be a baseline for what users expect. Understanding how the number of ingredients relates to average ratings will help us determine if recipe complexity plays a role in user preferences.
 
