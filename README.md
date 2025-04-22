@@ -1,4 +1,4 @@
-# From Stars to Ingredients: What Makes a Recipe Shine?
+# What Makes a Recipe Shine?
 
 by Tingyi Xiao(tingyix@umich.edu)
 
