@@ -104,7 +104,7 @@ We grouped recipes based on the number of ingredients and compared their ratings
  frameborder="0"
  ></iframe>
 
-This plot shows that recipes with a moderate number of ingredients (between 6–15) tend to receive slightly higher ratings. In contrast, recipes with either very few or many ingredients show greater variability and slightly lower median ratings. This suggests that recipes perceived as balanced in complexity may be more appealing to users.
+This plot shows that recipes with varying numbers of ingredients generally receive similar ratings. The boxplot indicates that while the number of ingredients does not drastically affect the ratings, there is some fluctuation in the middle quartiles, suggesting that complexity in ingredients may not be a major factor in rating variations.
 
 **Rating vs. Log(Cooking Time)**
 
@@ -117,7 +117,7 @@ We also examined how cooking time (log-transformed) relates to average rating:
  frameborder="0"
  ></iframe>
 
-We observe a weak downward trend: recipes with shorter cooking times tend to have slightly higher ratings. Most highly rated recipes cluster at lower cooking times, while those with longer durations show more variability or lower ratings. This suggests that users might prefer quicker recipes, potentially due to convenience or time constraints.
+We observe a a weak downward trend, with most recipes clustering around moderate cooking times and ratings. This suggests that longer cooking times do not necessarily lead to higher ratings. Interestingly, very long recipes tend to receive slightly higher ratings, which could be due to a preference for more complex, time-consuming dishes among certain users.
 
 ### Interesting Aggregates
 
