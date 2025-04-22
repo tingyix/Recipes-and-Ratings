@@ -158,6 +158,32 @@ This analysis confirms Recipes with **more than 30 ingredients** tend to receive
 
 This finding suggests that a **balance in recipe complexity**—whether in terms of ingredients or preparation time—might appeal more to users, with both simple and highly intricate recipes receiving higher ratings. Moderate complexity may strike the right chord for a broader audience.
 
+### Imputation
+
+We observed that some recipes had unrealistically low cooking times (e.g., 0 or 1 minute). These values were likely due to missing or incorrect data entries. To address this, we replaced these values with `NaN` and imputed them using the **median cooking time**, a robust measure less affected by outliers.
+
+The histograms below compare the distribution of cooking times before and after imputation. While the graphs appear quite similar, the post-imputation distribution is smoother and more realistic, helping avoid the skew caused by implausibly low values. This similarity in the graphs indicates that the imputation process did not significantly alter the overall distribution, but instead helped correct the unrealistic values, preserving the integrity of the data.
+
+**Before Imputation:**
+
+<iframe
+ src="assets/Before_Imputation.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+**After Imputation:**
+
+<iframe
+ src="assets/After_Imputation.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+
+
 ## Framing a Prediction Problem
 
 We formulated a **regression problem** to **predict the average rating** a recipe will receive, using only information available at the time the recipe is submitted. This ensures that our prediction process reflects a realistic scenario—no future interactions or reviews are used in training the model.
