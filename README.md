@@ -48,13 +48,10 @@ To ensure a meaningful and accurate analysis, we carefully cleaned and prepared 
    - We kept reviews without text (`review` column) because our prediction focuses on the numerical `rating` column, which was present in most cases.  
    - Ratings of 0 were treated as missing, since they likely indicate invalid or placeholder entries.  
 
-4. **Created a Feature: Number of Ingredients**  
-   Although not shown in the snippet above, we parsed the ingredient list to count how many ingredients each recipe included, adding a new `num_ingredients` column. This allows us to explore whether simpler recipes (with fewer ingredients) are rated more highly.
-
-5. **Merged Datasets**  
+4. **Merged Datasets**  
    Finally, we joined the two datasets on the recipe ID to combine recipe features with user ratings. This merged dataset allows us to analyze patterns between recipe characteristics and their average ratings.  
 
-6. **Created Average Rating per Recipe**  
+5. **Created Average Rating per Recipe**  
    To better understand the overall popularity of each recipe, we calculated the average rating each recipe received and added it as a new column.
 
 ### Univariate Analysis
