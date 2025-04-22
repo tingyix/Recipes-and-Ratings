@@ -62,7 +62,12 @@ To understand general trends in the dataset, we began with univariate analysis o
 
 We plotted the distribution of user ratings across all recipes:
 
-(embed fig_rating plot here)
+<iframe
+ src="fig_rating.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 Most users rated recipes very highly — particularly around 5 stars — which suggests a positive bias in user reviews. This trend implies that distinguishing truly exceptional recipes may require comparing slight differences within a narrow high range, making subtle predictors more valuable in our modeling.
 
