@@ -74,7 +74,6 @@ We plotted the distribution of user ratings across all recipes:
  frameborder="0"
  ></iframe>
  
-
 Most users rated recipes very highly — particularly around 5 stars — which suggests a positive bias in user reviews. This trend implies that distinguishing truly exceptional recipes may require comparing slight differences within a narrow high range, making subtle predictors more valuable in our modeling.
 
 **Distribution of Number of Ingredients**
@@ -98,7 +97,12 @@ To investigate how different features influence recipe ratings, we analyzed the 
 
 We grouped recipes based on the number of ingredients and compared their ratings using a boxplot:
 
-(embed the fig Plotly boxplot here)
+<iframe
+ src="assets/fig.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 This plot shows that recipes with a moderate number of ingredients (between 6–15) tend to receive slightly higher ratings. In contrast, recipes with either very few or many ingredients show greater variability and slightly lower median ratings. This suggests that recipes perceived as balanced in complexity may be more appealing to users.
 
@@ -106,7 +110,12 @@ This plot shows that recipes with a moderate number of ingredients (between 6–
 
 We also examined how cooking time (log-transformed) relates to average rating:
 
-(embed the fig2 Plotly scatter plot here)
+<iframe
+ src="assets/fig2.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 We observe a weak downward trend: recipes with shorter cooking times tend to have slightly higher ratings. Most highly rated recipes cluster at lower cooking times, while those with longer durations show more variability or lower ratings. This suggests that users might prefer quicker recipes, potentially due to convenience or time constraints.
 
@@ -118,7 +127,12 @@ To further explore the role of ingredient count, we grouped recipes by the numbe
 
 We also visualized this trend using a **line plot**:
 
-(Embed fig_grouped Plotly line chart here)
+<iframe
+ src="assets/fig_grouped.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 This analysis confirms that recipes with a moderate number of ingredients (about 6 to 10) tend to receive the highest average ratings. Recipes that are either too simple or too complex may be less appealing to users. This supports the idea that users value a balance of effort and reward in their cooking experiences.
 
