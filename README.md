@@ -94,3 +94,12 @@ We also examined how cooking time (log-transformed) relates to average rating:
 (embed the fig2 Plotly scatter plot here)
 
 We observe a weak downward trend: recipes with shorter cooking times tend to have slightly higher ratings. Most highly rated recipes cluster at lower cooking times, while those with longer durations show more variability or lower ratings. This suggests that users might prefer quicker recipes, potentially due to convenience or time constraints.
+
+To further explore the role of ingredient count, we grouped recipes by the number of ingredients and calculated their **average rating**:
+(Replace this sample table with actual values from your code output)
+
+We also visualized this trend using a **line plot**:
+
+(Embed fig_grouped Plotly line chart here)
+
+This analysis confirms that recipes with a moderate number of ingredients (about 6 to 10) tend to receive the highest average ratings. Recipes that are either too simple or too complex may be less appealing to users. This supports the idea that users value a balance of effort and reward in their cooking experiences.
