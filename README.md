@@ -145,7 +145,9 @@ We also visualized this trend using a **line plot**:
  frameborder="0"
  ></iframe>
 
-This analysis confirms that recipes with a moderate number of ingredients (about 6 to 10) tend to receive the highest average ratings. Recipes that are either too simple or too complex may be less appealing to users. This supports the idea that users value a balance of effort and reward in their cooking experiences.
+This analysis confirms Recipes with **more than 30 ingredients** tend to receive the highest average ratings, which may seem counterintuitive at first, as simpler recipes typically receive more attention. However, this could indicate that more complex recipes, which might require more effort, tend to attract a certain group of users who appreciate detailed and elaborate cooking processes.
+
+This finding suggests that a **balance in recipe complexity**—whether in terms of ingredients or preparation time—might appeal more to users, with both simple and highly intricate recipes receiving higher ratings. Moderate complexity may strike the right chord for a broader audience.
 
 ## Framing a Prediction Problem
 
