@@ -1,4 +1,6 @@
 # Recipes-and-Ratings
+by Tingyi Xiao(tingyix@umich.edu)
+Note: This is the final project for EECS 398 at U-M about recipes-and-rating
 ## Introduction
 Have you ever wondered what makes a recipe truly outstanding? In the age of online cooking platforms, thousands of recipes are rated and reviewed daily, providing a rich dataset to explore. This project seeks to answer the question: **“What kinds of recipes get higher average ratings?”**
 
