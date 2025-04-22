@@ -1,4 +1,4 @@
-# Recipes-and-Ratings
+#From Stars to Ingredients: What Makes a Recipe Shine?
 
 by Tingyi Xiao(tingyix@umich.edu)
 
