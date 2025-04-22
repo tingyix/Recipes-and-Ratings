@@ -167,7 +167,7 @@ The histograms below compare the distribution of cooking times before and after 
 **Before Imputation:**
 
 <iframe
- src="assets/Before_Imputation.html"
+ src="assets/Before Imputation.html"
  width="800"
  height="600"
  frameborder="0"
@@ -176,7 +176,7 @@ The histograms below compare the distribution of cooking times before and after 
 **After Imputation:**
 
 <iframe
- src="assets/After_Imputation.html"
+ src="assets/After Imputation.html"
  width="800"
  height="600"
  frameborder="0"
