@@ -38,34 +38,40 @@ These insights are useful for home chefs, food bloggers, and anyone looking to u
 
 ## Data Cleaning and Exploratory Data Analysis
 
-### Data Cleaning
+### **Data Cleaning**
 
 To ensure accurate and meaningful analysis, we followed several data cleaning steps, considering how the data was collected and potential issues that could arise from user input or system defaults.
 
-#### Handling Unrealistic Cooking Times
-- **Replacing Zero Cooking Times**: The `recipes` dataset contained some entries with a `minutes` value of 0, which likely resulted from data entry errors or default values. We replaced these 0 values with `NaN` using `replace(0, np.nan)`. This ensures that recipes with invalid cooking times are excluded from analysis.
-  
-- **Filtering Out Extreme Cooking Times**: We filtered the dataset to exclude any recipes with cooking times exceeding 1000 minutes, as these values are likely outliers and would distort the analysis.
+#### **Handling Unrealistic Cooking Times**
 
-#### Handling Missing Values in Recipes Dataset
-- **Missing Minutes and Ingredients**: We dropped any rows where the `minutes` or `n_ingredients` columns were missing, ensuring that only recipes with valid data for both features were included in our analysis.
-  
-- **Missing Descriptions**: We also dropped recipes with missing descriptions (`description` column), as the lack of descriptions likely indicates incomplete or uninformative entries for analysis.
+**Replacing Zero Cooking Times:** The recipes dataset contained some entries with a `minutes` value of 0, which likely resulted from user input errors or system defaults when users skipped the cooking time field. We replaced these 0 values with `NaN` using `replace(0, np.nan)`. This ensures that recipes with invalid cooking times are excluded from analysis.
 
-#### Handling Missing Ratings in Interactions Dataset
-- **Replacing Zero Ratings**: In the `interactions` dataset, we found that some recipes had a rating of 0. Since a rating of 0 likely represents invalid or placeholder data, we replaced these with `NaN` to treat them as missing values.
-  
-- **Converting Dates to Datetime**: The `date` column in the `interactions` dataset was originally stored as text. We converted it to `datetime` format using `pd.to_datetime()`, allowing for any future analysis that might involve temporal patterns. Invalid or poorly formatted date entries were converted to `NaT` (Not a Time).
+**Filtering Out Extreme Cooking Times:** We filtered the dataset to exclude any recipes with cooking times exceeding 1000 minutes. These extreme values may result from accidental key presses (e.g., typing 1000 instead of 100) or misinterpretation of units, and would distort the analysis.
 
-- **Dropping Missing Ratings**: We also removed rows from the `interactions` dataset where the `rating` was missing, ensuring that only valid reviews with ratings were included.
+#### **Handling Missing Values in the Recipes Dataset**
 
-#### Merging Datasets
-To combine the recipe data with the user ratings, we performed a **left join** between the `recipes` and `interactions` datasets, using the `recipe_id` from `interactions` and the `id` from `recipes` as the key. This merge allows us to analyze how different recipe characteristics (such as `minutes`, `n_ingredients`, and `description`) relate to user ratings.
+**Missing Minutes and Ingredients:** We dropped any rows where the `minutes` or `n_ingredients` columns were missing, ensuring that only recipes with valid data for both features were included in our analysis.
 
-#### Final Cleaning and Dataframe Creation
+**Missing Descriptions:** We also dropped recipes with missing descriptions (`description` column), as the lack of descriptions likely indicates incomplete or placeholder entries. Since descriptions were optional during submission, these missing values may reflect test uploads or low-effort contributions.
+
+#### **Handling Missing Ratings in the Interactions Dataset**
+
+**Replacing Zero Ratings:** In the interactions dataset, we found that some recipes had a rating of 0. Since a rating of 0 likely represents invalid or placeholder data, we replaced these with `NaN` to treat them as missing values.
+
+**Converting Dates to Datetime:** The `date` column in the interactions dataset was originally stored as text. We converted it to datetime format using `pd.to_datetime()`, allowing for any future analysis involving temporal patterns. Invalid or poorly formatted date entries were converted to `NaT` (Not a Time).
+
+**Dropping Missing Ratings:** We also removed rows from the interactions dataset where the rating was missing, ensuring that only valid reviews with ratings were included.
+
+#### **Merging Datasets**
+
+To combine the recipe data with user ratings, we performed a left join between the recipes and interactions datasets, using `recipe_id` from interactions and `id` from recipes as the key. This merge allows us to analyze how different recipe characteristics (such as minutes, n_ingredients, and description) relate to user ratings.
+
+#### **Final Cleaning and DataFrame Creation**
+
 After merging the datasets, we performed one final cleaning step to ensure that only rows with valid data for critical columns (`minutes`, `n_ingredients`, and `rating`) remained. This ensures that our final dataset (`clean_df`) is ready for modeling and analysis.
 
-### Impact of Data Cleaning on Analysis:
+#### **Impact of Data Cleaning on Analysis**
+
 These cleaning steps ensured that the dataset used for analysis is consistent and accurate. By removing unrealistic cooking times, handling missing ratings and descriptions, and merging datasets carefully, we created a clean dataset that accurately represents recipe and rating data, providing a solid foundation for feature engineering and model training.
 
 ### Univariate Analysis
