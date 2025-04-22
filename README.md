@@ -78,3 +78,19 @@ Next, we examined how many ingredients recipes typically use:
 (embed fig_ing plot here)
 
 We observed that most recipes use fewer than 15 ingredients, with a steep drop-off after that point. This suggests that shorter ingredient lists are common, and may be a baseline for what users expect. Understanding how the number of ingredients relates to average ratings will help us determine if recipe complexity plays a role in user preferences.
+
+To investigate how different features influence recipe ratings, we analyzed the relationship between key variables using Plotly visualizations.
+
+**Rating vs. Ingredient Count**
+We grouped recipes based on the number of ingredients and compared their ratings using a boxplot:
+
+(embed the fig Plotly boxplot here)
+
+This plot shows that recipes with a moderate number of ingredients (between 6–15) tend to receive slightly higher ratings. In contrast, recipes with either very few or many ingredients show greater variability and slightly lower median ratings. This suggests that recipes perceived as balanced in complexity may be more appealing to users.
+
+**Rating vs. Log(Cooking Time)**
+We also examined how cooking time (log-transformed) relates to average rating:
+
+(embed the fig2 Plotly scatter plot here)
+
+We observe a weak downward trend: recipes with shorter cooking times tend to have slightly higher ratings. Most highly rated recipes cluster at lower cooking times, while those with longer durations show more variability or lower ratings. This suggests that users might prefer quicker recipes, potentially due to convenience or time constraints.
