@@ -103,3 +103,30 @@ We also visualized this trend using a **line plot**:
 (Embed fig_grouped Plotly line chart here)
 
 This analysis confirms that recipes with a moderate number of ingredients (about 6 to 10) tend to receive the highest average ratings. Recipes that are either too simple or too complex may be less appealing to users. This supports the idea that users value a balance of effort and reward in their cooking experiences.
+
+## Framing a Prediction Problem
+
+We formulated a **regression problem** to **predict the average rating** a recipe will receive, using only information available at the time the recipe is submitted. This ensures that our prediction process reflects a realistic scenario—no future interactions or reviews are used in training the model.
+
+### Response Variable  
+Our target variable is **`rating`**, specifically the rating given by users. We aimed to predict it based on features known at submission time:  
+- `minutes` (cooking time)  
+- `n_steps` (number of steps)  
+- `n_ingredients` (number of ingredients, computed from the ingredient list)  
+- `year` (extracted from the `submitted` date to capture potential trends over time)
+
+We excluded any post-submission data (e.g., reviews, ratings from other users, etc.) to preserve causality.
+
+### Evaluation Metric  
+We used **Mean Absolute Error (MAE)** to evaluate our models. MAE is easy to interpret (it tells us, on average, how far our predictions are from the true values) and is more robust to outliers than squared-error metrics.
+
+### Results  
+We trained two models as an initial comparison:  
+
+- **Linear Regression** (baseline): MAE = **0.497**  
+- **Random Forest Regressor**: MAE = **0.478**  
+
+The Random Forest model outperformed the linear baseline, indicating that **non-linear patterns** exist between recipe features and user ratings.
+
+### Next Steps  
+Future improvements may include experimenting with additional features like recipe tags, natural language processing of the description field, or clustering recipes by cuisine type.
