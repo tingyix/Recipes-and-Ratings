@@ -63,7 +63,7 @@ To understand general trends in the dataset, we began with univariate analysis o
 We plotted the distribution of user ratings across all recipes:
 
 <iframe
- src="fig_rating.html"
+ src="assets/fig_rating.html"
  width="800"
  height="600"
  frameborder="0"
