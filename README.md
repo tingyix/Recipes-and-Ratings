@@ -130,3 +130,29 @@ The Random Forest model outperformed the linear baseline, indicating that **non-
 
 ### Next Steps  
 Future improvements may include experimenting with additional features like recipe tags, natural language processing of the description field, or clustering recipes by cuisine type.
+
+## Baseline Model
+
+For our baseline, we used a **Linear Regression model** to predict the average recipe rating. The purpose of this model is to establish a simple benchmark against which we can compare more complex models later.
+
+### Features and Their Types  
+We included the following features in our baseline model:
+
+- **`minutes`** (quantitative): Total preparation time  
+- **`n_steps`** (quantitative): Number of steps in the recipe  
+- **`n_ingredients`** (quantitative): Number of ingredients used  
+
+There were no ordinal or nominal features in this model, so no categorical encoding was necessary.
+
+### Preprocessing  
+Before fitting the model, we standardized all numeric features using **`StandardScaler`** to ensure they were on comparable scales. This is important for linear models, as features on larger scales can disproportionately affect the regression weights.
+
+### Performance  
+We trained the model on 80% of the data and tested it on the remaining 20%, using **Mean Absolute Error (MAE)** as our evaluation metric.
+
+- **Baseline Model MAE: 0.498**
+
+This MAE reflects the average absolute difference between predicted and actual ratings. While not highly accurate, the model serves its purpose as a simple benchmark. The relatively straightforward structure and few input features help us interpret the results and compare against more advanced approaches like Random Forests.
+
+### Conclusion  
+This baseline model is **not expected to be highly predictive**, but it provides a useful reference point. Any future models that incorporate non-linear relationships, additional features, or interaction terms should ideally outperform this model in terms of MAE.
