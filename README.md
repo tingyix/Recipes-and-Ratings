@@ -123,7 +123,8 @@ We observe a weak downward trend: recipes with shorter cooking times tend to hav
 
 To further explore the role of ingredient count, we grouped recipes by the number of ingredients and calculated their **average rating**:
 
-(Replace this sample table with actual values from your code output)
+|   n_ingredients |   rating |\n|----------------:|---------:|\n|               5 |  4.71023 |\n|               6 |  4.6782  |\n|               7 |  4.66876 |\n|               8 |  4.66273 |\n|               9 |  4.66402 |\n|              10 |  4.66181 |\n|              11 |  4.68238 |\n|              12 |  4.67681 |\n|              13 |  4.68916 |\n|              14 |  4.65737 |'
+
 
 We also visualized this trend using a **line plot**:
 
