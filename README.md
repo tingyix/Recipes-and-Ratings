@@ -200,11 +200,12 @@ This MAE reflects the average absolute difference between predicted and actual r
 ### Conclusion  
 This baseline model is **not expected to be highly predictive**, but it provides a useful reference point. Any future models that incorporate non-linear relationships, additional features, or interaction terms should ideally outperform this model in terms of MAE.
 
-### Final Model
+
+## Final Model
 
 To improve prediction performance over our baseline, we engineered new features based on domain knowledge and used a **Random Forest Regressor** with hyperparameter tuning via cross-validation.
 
-### Feature Engineering
+###  Feature Engineering
 
 We added three features that better capture recipe complexity and non-linear patterns:
 
@@ -227,12 +228,14 @@ We used a **`RandomForestRegressor`** because it's well-suited for capturing non
 
 Hyperparameters were selected using 5-fold cross-validation with **Mean Absolute Error (MAE)** as the scoring metric.
 
+> **Best Hyperparameters:**  
+> `n_estimators = 200`, `max_depth = None`, `min_samples_split = 2`
+
 ### Model Performance
 
 | Model             | MAE    |
 |------------------|--------|
 | Baseline (Linear Regression) | 0.498 |
-| Final Model (Random Forest) | **0.462** |
+| Final Model (Random Forest) | **0.491** |
 
-The final model shows a clear improvement in MAE over the baseline, indicating it better captures the underlying patterns in the data. This improvement is attributed to both more expressive features and the model’s ability to learn complex, non-linear interactions.
-
+The final model achieves a **MAE of 0.491**, showing a modest but meaningful improvement over the baseline model. This indicates that the additional features and the more flexible model architecture help better capture user preferences based on recipe characteristics.
