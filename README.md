@@ -199,3 +199,40 @@ This MAE reflects the average absolute difference between predicted and actual r
 
 ### Conclusion  
 This baseline model is **not expected to be highly predictive**, but it provides a useful reference point. Any future models that incorporate non-linear relationships, additional features, or interaction terms should ideally outperform this model in terms of MAE.
+
+### Final Model
+
+To improve prediction performance over our baseline, we engineered new features based on domain knowledge and used a **Random Forest Regressor** with hyperparameter tuning via cross-validation.
+
+### Feature Engineering
+
+We added three features that better capture recipe complexity and non-linear patterns:
+
+- **`log_minutes`**:  
+  Cooking time (`minutes`) is right-skewed. Taking the log (`log1p`) reduces this skew, making the model less sensitive to extremely long recipes and improving generalization.
+
+- **`ingredient_bin`**:  
+  Based on earlier visualizations, we saw that recipes with 6–15 ingredients tend to receive higher ratings. Binning `n_ingredients` into intervals (e.g., ‘0–5’, ‘6–10’, etc.) allows us to represent this non-linear relationship effectively.
+
+- **`minutes_n_steps`** (interaction feature):  
+  We created a new feature that multiplies `minutes` by `n_steps` to represent overall recipe complexity. A recipe that takes both a long time and many steps might impact user perception and ratings more than either feature alone.
+
+### Modeling and Hyperparameter Tuning
+
+We used a **`RandomForestRegressor`** because it's well-suited for capturing non-linear relationships and interactions between features. We performed a grid search over the following hyperparameters:
+
+- `n_estimators`: number of trees in the forest (`[50, 100, 200]`)
+- `max_depth`: maximum depth of the trees (`[None, 10, 20]`)
+- `min_samples_split`: minimum samples required to split a node (`[2, 5, 10]`)
+
+Hyperparameters were selected using 5-fold cross-validation with **Mean Absolute Error (MAE)** as the scoring metric.
+
+### Model Performance
+
+| Model             | MAE    |
+|------------------|--------|
+| Baseline (Linear Regression) | 0.498 |
+| Final Model (Random Forest) | **0.462** |
+
+The final model shows a clear improvement in MAE over the baseline, indicating it better captures the underlying patterns in the data. This improvement is attributed to both more expressive features and the model’s ability to learn complex, non-linear interactions.
+
