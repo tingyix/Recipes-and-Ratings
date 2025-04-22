@@ -62,3 +62,19 @@ To ensure a meaningful and accurate analysis, we carefully cleaned and prepared 
    To better understand the overall popularity of each recipe, we calculated the average rating each recipe received and added it as a new column.  
    `avg_rating_per_recipe = merged_df.groupby('id')['rating'].mean()`  
    `merged_df = merged_df.merge(avg_rating_per_recipe.rename('avg_rating'), on='id', how='left')`
+
+To understand general trends in the dataset, we began with univariate analysis of key features.
+
+**Distribution of Recipe Ratings**
+We plotted the distribution of user ratings across all recipes:
+
+(embed fig_rating plot here)
+
+Most users rated recipes very highly — particularly around 5 stars — which suggests a positive bias in user reviews. This trend implies that distinguishing truly exceptional recipes may require comparing slight differences within a narrow high range, making subtle predictors more valuable in our modeling.
+
+**Distribution of Number of Ingredients**
+Next, we examined how many ingredients recipes typically use:
+
+(embed fig_ing plot here)
+
+We observed that most recipes use fewer than 15 ingredients, with a steep drop-off after that point. This suggests that shorter ingredient lists are common, and may be a baseline for what users expect. Understanding how the number of ingredients relates to average ratings will help us determine if recipe complexity plays a role in user preferences.
